@@ -19,7 +19,9 @@ const { MongoClient } = require('mongodb');
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 // const mongoDB = "insert_your_database_url_here";
-const mongoDB =  "mongodb+srv://s1370849chen:taiwan99@cluster0.akdsabr.mongodb.net/local_library?retryWrites=true&w=majority";
+const dev_db_url =
+  "mongodb+srv://your_user_name:your_password@cluster0.lz91hw2.mongodb.net/local_library?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 //mongoose.connect(mongoDB,{ useNewUrlParser: true });
 const client = new MongoClient( mongoDB);
 //const db = mongoose.connectiondb.on("error",console.error.bind(console,'MongoDb connect error:'));
